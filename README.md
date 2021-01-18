@@ -12,6 +12,7 @@ This Solution contains 3 projects:
 Sample Output:
 
  < Tweet Statistics > 
+ 
 Total Tweets      : 1700
 Tweets/Second     : 52.27
 Tweets/Minute     : 3136.00
@@ -21,7 +22,7 @@ Top Emojis        : Under Construction
 Tweets with Url   : 2%
 Top Urls          : Under Construction%
  < ---------------- >
-
+ 
 
 ## Run Instruction
 
