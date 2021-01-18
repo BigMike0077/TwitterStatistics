@@ -4,7 +4,7 @@ The Twitter API provides a stream endpoint that delivers a roughly 1% random sam
 
 The Twitter API v2 sampled stream endpoint provides a random sample of approximately 1% of the full tweet stream.
 
-This Solution contains 3 projects:
+This Solution contains 3 .NET Core 3.1 projects:
 1) EmojiData - Creates a Dictionary of the emoji.json file and a class to match emojis from the tritter data text.
 2) TwitterStatistics - Main program that runs and accumulated the real-time tritter statistics.
 3) TwitterStatisticsUnitTest - unit test.
