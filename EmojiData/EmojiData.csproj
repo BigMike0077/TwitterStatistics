@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="App_Data\emojidata.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_Data\emojidata.json" />
+  </ItemGroup>
+</Project>
