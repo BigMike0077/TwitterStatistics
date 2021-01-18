@@ -43,4 +43,4 @@ This code must be added to the TwitterStatistics project Arguments array.
 
 Thank you for this assignment.
 
-It was interesting and very challanging.
+It was interesting and very challenging.
