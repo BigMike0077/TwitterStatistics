@@ -36,6 +36,8 @@ Top Urls          : Under Construction%
 
 To run the TwitterStatistics program, you are required to provide your twitter bearer code.
 This code must be added to the TwitterStatistics project Arguments array.
+![alt text](https://github.com/BigMike0077/TwitterStatistics/RunInstructions_Bearer.png?raw=true)
+
 
 
 Thank you for this assignment.
