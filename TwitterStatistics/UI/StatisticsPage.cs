@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Text;
+using System.Threading.Tasks;
 using TwitterStatistics.Models;
 
 namespace TwitterStatistics.UI
@@ -31,26 +32,7 @@ namespace TwitterStatistics.UI
 
 		public void RenderStatistics(Statistics stats)
 		{
-			TimeSpan interval = DateTime.Now - stats.StartDateTime;
-			string underConstruction = "Under Construction";
-
-			Console.ForegroundColor = ConsoleColor.White;
-			Console.BackgroundColor = ConsoleColor.Blue;
-			Console.Clear();
-
-			Console.WriteLine(" < Tweet Statistics > ");
-
-			Console.WriteLine($"Total Tweets      : {stats.TotalTweets}");
-			//Console.WriteLine($"Tweets/Second     : {(stats.TotalTweets / interval.TotalSeconds).ToString("F", CultureInfo.InvariantCulture)}");
-			Console.WriteLine($"Tweets/Second     : {TweetsPerSecond(interval.TotalSeconds, stats.TotalTweets)}");
-			Console.WriteLine($"Tweets/Minute     : {TweetsPerMinute(interval.TotalMinutes, stats.TotalTweets)}");
-			Console.WriteLine($"Tweets/Hour       : {TweetsPerHour(interval.TotalHours, stats.TotalTweets)}");
-			Console.WriteLine($"Tweets with Emojis: {underConstruction}%");
-			Console.WriteLine($"Top Emojis        : {underConstruction}");
-			Console.WriteLine($"Tweets with Url   : {TweetsHttpPercentage(stats.TotalTweets, stats.HttpTweets)}%");
-			Console.WriteLine($"Top Urls          : {underConstruction}%");
-
-			Console.WriteLine(" < ---------------- > ");
+			_ = RenderAsync(stats);
 		}
 
 		public void RenderText(string text)
@@ -65,6 +47,33 @@ namespace TwitterStatistics.UI
 		#endregion
 
 		#region Private Methods
+
+		private static async Task RenderAsync(Statistics stats)
+		{
+			await Task.Run(() =>
+			{
+				TimeSpan interval = DateTime.Now - stats.StartDateTime;
+				string underConstruction = "Under Construction";
+
+				Console.ForegroundColor = ConsoleColor.White;
+				Console.BackgroundColor = ConsoleColor.Blue;
+				Console.Clear();
+
+				Console.WriteLine(" < Tweet Statistics > ");
+
+				Console.WriteLine($"Total Tweets      : {stats.TotalTweets}");
+				//Console.WriteLine($"Tweets/Second     : {(stats.TotalTweets / interval.TotalSeconds).ToString("F", CultureInfo.InvariantCulture)}");
+				Console.WriteLine($"Tweets/Second     : {TweetsPerSecond(interval.TotalSeconds, stats.TotalTweets)}");
+				Console.WriteLine($"Tweets/Minute     : {TweetsPerMinute(interval.TotalMinutes, stats.TotalTweets)}");
+				Console.WriteLine($"Tweets/Hour       : {TweetsPerHour(interval.TotalHours, stats.TotalTweets)}");
+				Console.WriteLine($"Tweets with Emojis: {underConstruction}%");
+				Console.WriteLine($"Top Emojis        : {underConstruction}");
+				Console.WriteLine($"Tweets with Url   : {TweetsHttpPercentage(stats.TotalTweets, stats.HttpTweets)}%");
+				Console.WriteLine($"Top Urls          : {underConstruction}%");
+
+				Console.WriteLine(" < ---------------- > ");
+			});
+		}
 
 		private static string TweetsPerSecond(double seconds, long tweets)
 		{
